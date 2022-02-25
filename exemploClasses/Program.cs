@@ -18,12 +18,14 @@ namespace exemploClasses
             //-----------------------------------------
 
             // Class Pessoa
-            string a = "renato";
+            string nome = "renato";
             int idade = 30;
             DateTime dt = new DateTime(1995, 01, 16,1,1,1);
             Pessoa pessoa = new Pessoa("renato", dt);
 
             Console.WriteLine(pessoa.ToString());
+            Funcionario funcionario = new Funcionario(nome, idade, "Manager", 2000);
+            Console.WriteLine(funcionario.ToString());
         }
     }
 }
