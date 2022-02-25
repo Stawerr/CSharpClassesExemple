@@ -9,8 +9,30 @@ namespace exemploClasses
        private string _categoria;
        private double _salario;
 
-        public string Categoria { get => _categoria; set => _categoria = value; }
-        public double Salario { get => _salario; set => _salario = value; }
+        public string Categoria { get => _categoria; set
+            {
+                if (value != null && value == "Manager" || value == "Employee")
+                {
+                    _categoria = value;
+                }
+                else
+                {
+                    Console.WriteLine("Categoria Invalida");
+                }    
+            }
+        }
+        public double Salario { get => _salario; set 
+            {
+                if(value > 500 && value < 2500)
+                {
+                    _salario = value;
+                }
+                else
+                {
+                    Console.WriteLine("Salário Invalido");
+                }
+            }
+        }
 
         public Funcionario(string nome, int idade, string categoria, double salario):base(nome,idade)
         {
