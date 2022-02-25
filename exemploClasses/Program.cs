@@ -20,7 +20,8 @@ namespace exemploClasses
             // Class Pessoa
             string a = "renato";
             int idade = 30;
-            Pessoa pessoa = new Pessoa(a, idade);
+            DateTime dt = new DateTime(1995, 01, 16,1,1,1);
+            Pessoa pessoa = new Pessoa("renato", dt);
 
             Console.WriteLine(pessoa.ToString());
         }

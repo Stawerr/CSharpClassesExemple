@@ -8,6 +8,20 @@ namespace exemploClasses
     {
         private string _nome;
         private int _idade;
+        private DateTime _dataNascimento;
+
+
+        public DateTime DataNascimento
+        {
+            get { return _dataNascimento; }
+            set 
+            {
+                if (value <= DateTime.Now)
+                {
+                    _dataNascimento = value;
+                }
+            }
+        }
 
         public string Nome {
             get => _nome;
@@ -28,6 +42,7 @@ namespace exemploClasses
                
             }
         }
+
         public Pessoa()
         {
             Nome = "No name";
@@ -38,6 +53,14 @@ namespace exemploClasses
             Nome = n;
             Idade = i;
         }
+        public Pessoa(string n) : this()
+        {
+            Nome = n;
+        }
+        public Pessoa(string n, DateTime dataNascimento) : this(n)
+        {
+            DataNascimento = dataNascimento;
+        }
         public Pessoa(Pessoa p)
         {
             Nome = p.Nome;
@@ -45,9 +68,19 @@ namespace exemploClasses
 
         }
 
+
+        public int calcularIdade()
+        {
+            if (DataNascimento.DayOfYear > DateTime.Now.DayOfYear)
+            {
+                return DateTime.Now.Year - DataNascimento.Year-1;
+            }
+            return DateTime.Now.Year - DataNascimento.Year;
+        }
         public override string ToString()
         {
-            return "nome : " + Nome + " idade : " + Idade;
+            return "nome : " + Nome + " idade : " + Idade+ " Idade Calculada "+ calcularIdade();
+            
         }
     }
 }
